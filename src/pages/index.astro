@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.tsx';
+import Hero from '../components/Hero.tsx';
+import Features from '../components/Features.tsx';
+import Compatibility from '../components/Compatibility.tsx';
+import Stats from '../components/Stats.tsx';
+import { CTA, Footer } from '../components/CTA.tsx';
+---
+
+<Layout title="CESLogic — Aplikasi Absensi & Kelola Tim">
+	<div style="background: #141414; min-height: 100vh;">
+		<header>
+			<Nav client:load />
+		</header>
+		<main id="main-content">
+			<Hero client:load />
+			<Features client:visible />
+			<Compatibility client:visible />
+			<Stats client:visible />
+			<CTA client:visible />
+		</main>
+		<Footer client:visible />
+	</div>
+</Layout>
