@@ -23,6 +23,8 @@ export function CTA() {
         body: JSON.stringify({
           email: email,
           _subject: "Permintaan Demo / Informasi Baru - CESLogic",
+          _captcha: "false",
+          _template: "table",
           pesan: `Calon klien dengan alamat email ${email} mengajukan permintaan demo/informasi aplikasi CESLogic.`,
         }),
       });
