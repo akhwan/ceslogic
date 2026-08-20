@@ -9,6 +9,7 @@ const __dirname = path.dirname(__filename);
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://ceslogic.com',
   integrations: [react()],
   server: {
     host: '0.0.0.0',

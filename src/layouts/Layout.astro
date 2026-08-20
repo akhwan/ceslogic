@@ -4,11 +4,15 @@ import '../index.css';
 interface Props {
 	title?: string;
 	description?: string;
+	image?: string;
+	canonical?: string;
 }
 
 const { 
 	title = "CESLogic — Aplikasi Absensi & Kelola Tim", 
-	description = "Aplikasi absensi yang hadir menjawab keluh kesah admin dan staff. Fitur lengkap: Deteksi Wajah & Lokasi, Kelola Tugas, Pantau Komplain Klien, dan Laporan Administrasi." 
+	description = "Aplikasi absensi yang hadir menjawab keluh kesah admin dan staff. Fitur lengkap: Deteksi Wajah & Lokasi, Kelola Tugas, Pantau Komplain Klien, dan Laporan Administrasi.",
+	image = "https://ceslogic.com/dashboard.png",
+	canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : "https://ceslogic.com/"
 } = Astro.props;
 ---
 
@@ -24,21 +28,23 @@ const {
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<meta name="robots" content="index, follow" />
-		<link rel="canonical" href="https://ceslogic.com/" />
+		<link rel="canonical" href={canonical} />
 
 		<!-- OpenGraph Meta Tags for Social & Search Engines -->
 		<meta property="og:locale" content="id_ID" />
 		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonical} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:site_name" content="CESLogic" />
-		<meta property="og:image" content="/dashboard.png" />
+		<meta property="og:image" content={image} />
 
 		<!-- Twitter Card Meta Tags -->
 		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={canonical} />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
-		<meta name="twitter:image" content="/dashboard.png" />
+		<meta name="twitter:image" content={image} />
 
 		<!-- Schema.org JSON-LD Structured Data -->
 		<script type="application/ld+json">
@@ -46,9 +52,10 @@ const {
 				"@context": "https://schema.org",
 				"@type": "WebApplication",
 				"name": "CESLogic",
+				"url": "https://ceslogic.com/",
 				"applicationCategory": "BusinessApplication",
 				"operatingSystem": "All",
-				"description": "Aplikasi absensi yang hadir menjawab keluh kesah admin dan staff.",
+				"description": "Aplikasi absensi yang hadir menjawab keluh kesah admin dan staff. Fitur lengkap: Deteksi Wajah & Lokasi, Kelola Tugas, Pantau Komplain Klien, dan Laporan Administrasi.",
 				"offers": {
 					"@type": "Offer",
 					"price": "0",
